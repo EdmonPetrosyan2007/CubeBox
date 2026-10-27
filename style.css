@@ -1,0 +1,242 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    list-style-type: none;
+    font-weight: 100;
+}
+
+.container {
+    width: 100%;
+    height: 100vh;
+    background: black;
+    position: relative;
+    overflow: hidden;
+}
+
+
+.item {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    perspective: 1000px;
+}
+
+.c_1 {
+    width: 220px;
+    height: 220px;
+    left: 22%;
+    top: 38%;
+}
+
+.c_2 {
+    width: 300px;
+    height: 300px;
+    left: 50%;
+    top: 64%;
+}
+
+.c_3 {
+    width: 160px;
+    height: 160px;
+    left: 80%;
+    top: 34%;
+}
+
+
+
+.panel {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    animation:
+        for_cub 19s linear infinite,
+        float 5s ease-in-out infinite;
+}
+
+.c_1 .panel {
+    transform-origin: 50% 50% -110px;
+}
+
+.c_2 .panel {
+    transform-origin: 50% 50% -150px;
+}
+
+.c_3 .panel {
+    transform-origin: 50% 50% -80px;
+}
+
+.c_2>.panel {
+    animation-duration: 25s, 5s;
+    animation-delay: -4s, -2s;
+}
+
+.c_3>.panel {
+    animation-duration: 13s, 5s;
+    animation-delay: -8s, -4s;
+}
+
+@keyframes for_cub {
+    from {
+        transform: rotateX(-15deg) rotateY(0deg);
+    }
+
+    to {
+        transform: rotateX(-15deg) rotateY(360deg);
+    }
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        translate: 0 0;
+    }
+
+    50% {
+        translate: 0 -22px;
+    }
+}
+
+
+
+.block {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.b_1 {
+    transform-origin: left;
+    transform: rotateY(90deg);
+}
+
+.b_2 {
+    transform-origin: top;
+    transform: rotateX(-90deg);
+}
+
+.b_3 {
+    transform-origin: right;
+    transform: rotateY(-90deg);
+}
+
+.b_4 {
+    transform-origin: bottom;
+    transform: rotateX(90deg);
+}
+
+.b_2 {
+    background: #111;
+}
+
+.b_4 {
+    background: #000;
+}
+
+.c_1 .b_5 {
+    transform: translateZ(-220px);
+}
+
+.c_2 .b_5 {
+    transform: translateZ(-300px);
+}
+
+.c_3 .b_5 {
+    transform: translateZ(-160px);
+}
+
+
+
+.c_1 .b_1,
+.c_1 .b_3,
+.c_1 .b_5,
+.c_1 .b_6 {
+    background: linear-gradient(to bottom, #1a0000, #8f0000 55%, #ff0000);
+}
+
+.c_1 .glow {
+    background: radial-gradient(ellipse at center,
+            rgba(255, 0, 0, 0.95) 0%,
+            rgba(200, 0, 0, 0.55) 30%,
+            rgba(90, 0, 0, 0.2) 60%,
+            transparent 75%);
+}
+
+
+
+.c_2 .b_1,
+.c_2 .b_3,
+.c_2 .b_5,
+.c_2 .b_6 {
+    background: linear-gradient(to bottom, #000b1a, #003c8f 55%, #006aff);
+}
+
+.c_2 .glow {
+    background: radial-gradient(ellipse at center,
+            rgba(0, 106, 255, 0.95) 0%,
+            rgba(0, 85, 204, 0.55) 30%,
+            rgba(0, 38, 92, 0.2) 60%,
+            transparent 75%);
+}
+
+
+
+.c_3 .b_1,
+.c_3 .b_3,
+.c_3 .b_5,
+.c_3 .b_6 {
+
+    background: linear-gradient(to bottom, #001a09, #008f30 55%, #00ff55);
+}
+
+.c_3 .glow {
+    background: radial-gradient(ellipse at center,
+            rgba(0, 255, 85, 0.95) 0%,
+            rgba(0, 204, 68, 0.55) 30%,
+            rgba(0, 92, 31, 0.2) 60%,
+            transparent 75%);
+}
+
+
+
+.glow {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 180%;
+    height: 77%;
+    margin: 54% 0 0 -90%;
+    border-radius: 50%;
+    filter: blur(16px);
+    animation: glow 5s ease-in-out infinite;
+}
+
+.c_2>.glow {
+    animation-delay: -2s;
+}
+
+.c_3>.glow {
+    animation-delay: -4s;
+}
+
+@keyframes glow {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(0.85);
+        opacity: 0.7;
+    }
+}
